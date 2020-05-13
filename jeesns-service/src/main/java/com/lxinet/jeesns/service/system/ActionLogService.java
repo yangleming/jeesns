@@ -1,35 +1,38 @@
 package com.lxinet.jeesns.service.system;
 
-import com.lxinet.jeesns.core.dto.ResultModel;
+import com.lxinet.jeesns.core.dto.Result;
+import com.lxinet.jeesns.core.event.AnalyticsUseEvent;
 import com.lxinet.jeesns.core.model.Page;
-import com.lxinet.jeesns.core.service.impl.BaseServiceImpl;
+import com.lxinet.jeesns.core.service.BaseService;
+import com.lxinet.jeesns.core.utils.SpringContextUtil;
 import com.lxinet.jeesns.dao.system.IActionLogDao;
 import com.lxinet.jeesns.model.system.Action;
 import com.lxinet.jeesns.model.system.ActionLog;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
  * Created by zchuanzhao on 2017/2/14.
  */
 @Service("actionLogService")
-public class ActionLogService extends BaseServiceImpl<ActionLog> {
+public class ActionLogService extends BaseService<ActionLog> {
     @Resource
     private ActionService actionService;
     @Resource
     private IActionLogDao actionLogDao;
 
-    public ResultModel<ActionLog> listByPage(Page page, Integer memberId) {
+    public Result<ActionLog> listByPage(Page page, Integer memberId) {
         List<ActionLog> list = actionLogDao.list(page, memberId);
-        ResultModel model = new ResultModel(0, page);
+        Result model = new Result(0, page);
         model.setData(list);
         return model;
     }
 
-    public ResultModel<ActionLog> memberActionLog(Page page, Integer memberId) {
+    public Result<ActionLog> memberActionLog(Page page, Integer memberId) {
         List<ActionLog> list = actionLogDao.memberActionLog(page, memberId);
-        ResultModel model = new ResultModel(0, page);
+        Result model = new Result(0, page);
         model.setData(list);
         return model;
     }

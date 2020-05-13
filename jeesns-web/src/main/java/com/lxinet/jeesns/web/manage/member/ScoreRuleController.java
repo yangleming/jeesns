@@ -2,7 +2,7 @@ package com.lxinet.jeesns.web.manage.member;
 
 import com.lxinet.jeesns.core.annotation.Before;
 import com.lxinet.jeesns.core.controller.BaseController;
-import com.lxinet.jeesns.core.dto.ResultModel;
+import com.lxinet.jeesns.core.dto.Result;
 import com.lxinet.jeesns.interceptor.AdminLoginInterceptor;
 import com.lxinet.jeesns.model.system.ScoreRule;
 import com.lxinet.jeesns.service.system.ScoreRuleService;
@@ -17,7 +17,7 @@ import java.util.List;
  * Created by zchuanzhao on 2017/3/24.
  */
 @Controller
-@RequestMapping("/${managePath}/system/scoreRule/")
+@RequestMapping("/${jeesns.managePath}/system/scoreRule/")
 @Before(AdminLoginInterceptor.class)
 public class ScoreRuleController extends BaseController {
     private static final String MANAGE_FTL_PATH = "/manage/system/scoreRule/";
@@ -40,14 +40,14 @@ public class ScoreRuleController extends BaseController {
 
     @RequestMapping(value = "update",method = RequestMethod.POST)
     @ResponseBody
-    public ResultModel update(ScoreRule scoreRule){
-        return new ResultModel(scoreRuleService.update(scoreRule));
+    public Result update(ScoreRule scoreRule){
+        return new Result(scoreRuleService.update(scoreRule));
     }
 
     @RequestMapping(value = "enabled/{id}",method = RequestMethod.GET)
     @ResponseBody
-    public ResultModel enabled(@PathVariable("id") Integer id){
-        return new ResultModel(scoreRuleService.enabled(id));
+    public Result enabled(@PathVariable("id") Integer id){
+        return new Result(scoreRuleService.enabled(id));
     }
 
 }

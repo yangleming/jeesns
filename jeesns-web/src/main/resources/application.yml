@@ -35,13 +35,24 @@ spring:
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
     # 合并多个DruidDataSource的监控数据
     useGlobalDataSourceStat: true
-  freemarket:
+  freemarker:
     template-loader-path: classpath:/templates/
     cache: false
     order: 0
     suffix: .ftl
     content-type: text/html
     charset: UTF-8
+    classic-compatible: true
+    whitespace-stripping: true
+    tag-syntax: auto_detect
+    template-update-delay: 0
+    default-encoding: UTF-8
+    output-encoding: UTF-8
+    locale: zh_CN
+    date-format: yyyy-MM-dd
+    time-format: HH:mm:ss
+    datetime-format: yyyy-MM-dd HH\:mm\:ss
+    number-format: \#.##
   logging:
     level: com.ibatis:DEBUG
   http:
@@ -54,16 +65,17 @@ spring:
 
 mybatis:
   typeAliasesPackage: com.lxinet.jeesns.model
-  configLocation: classpath:mybatis-config.xml
   mapperLocations: classpath*:mybatis/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
 logging:
   config: classpath:logback-server.xml
 
-
-managePath: manage
-groupPath: group
-weiboPath: weibo
-frontTemplate: front
-memberTemplate: member
-manageTemplate: manage
-mobileTemplate: mobile
+jeesns:
+  managePath: manage
+  groupPath: group
+  weiboPath: weibo
+  frontTemplate: front
+  memberTemplate: member
+  manageTemplate: manage
+  mobileTemplate: mobile

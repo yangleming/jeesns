@@ -1,7 +1,9 @@
 package com.lxinet.jeesns.service.system;
 
+import com.lxinet.jeesns.core.event.AnalyticsUseEvent;
 import com.lxinet.jeesns.core.exception.ParamException;
-import com.lxinet.jeesns.core.service.impl.BaseServiceImpl;
+import com.lxinet.jeesns.core.service.BaseService;
+import com.lxinet.jeesns.core.utils.SpringContextUtil;
 import com.lxinet.jeesns.dao.system.IConfigDao;
 import com.lxinet.jeesns.model.system.Config;
 import org.springframework.stereotype.Service;
@@ -16,7 +18,7 @@ import java.util.Map;
  * Created by zchuanzhao on 16/9/27.
  */
 @Service("configService")
-public class ConfigService extends BaseServiceImpl<Config> {
+public class ConfigService extends BaseService<Config> {
     @Resource
     private IConfigDao configDao;
 
@@ -50,6 +52,12 @@ public class ConfigService extends BaseServiceImpl<Config> {
                 configDao.update((String)entry.getKey(),(String)entry.getValue());
                 request.getServletContext().setAttribute(((String)entry.getKey()).toUpperCase(),entry.getValue());
             }
+        }
+        try {
+            AnalyticsUseEvent analyticsEvent = new AnalyticsUseEvent(this, request);
+            SpringContextUtil.getApplicationContext().publishEvent(analyticsEvent);
+        }catch (Exception e){
+            e.printStackTrace();
         }
         return true;
     }

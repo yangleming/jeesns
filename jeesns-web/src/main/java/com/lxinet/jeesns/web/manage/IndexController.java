@@ -6,7 +6,7 @@ import com.lxinet.jeesns.service.member.MemberService;
 import com.lxinet.jeesns.utils.MemberUtil;
 import com.lxinet.jeesns.core.annotation.Before;
 import com.lxinet.jeesns.core.annotation.Clear;
-import com.lxinet.jeesns.core.dto.ResultModel;
+import com.lxinet.jeesns.core.dto.Result;
 import com.lxinet.jeesns.core.utils.Const;
 import com.lxinet.jeesns.core.utils.JeesnsConfig;
 import com.lxinet.jeesns.interceptor.AdminLoginInterceptor;
@@ -22,7 +22,7 @@ import java.util.Properties;
  * Created by zchuanzhao on 16/9/26.
  */
 @Controller("manageIndexController")
-@RequestMapping("/${managePath}")
+@RequestMapping("/${jeesns.managePath}")
 @Before(AdminLoginInterceptor.class)
 public class IndexController extends BaseController {
     private static final String FTL_PATH = "/manage";
@@ -100,15 +100,15 @@ public class IndexController extends BaseController {
     @Clear()
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     @ResponseBody
-    public ResultModel login(Member member, @RequestParam(value = "redirectUrl",required = false,defaultValue = "") String redirectUrl){
+    public Result login(Member member, @RequestParam(value = "redirectUrl",required = false,defaultValue = "") String redirectUrl){
         if(member == null){
-            return new ResultModel(-1,"参数错误");
+            return new Result(-1,"参数错误");
         }
         if(StringUtils.isEmpty(member.getName())){
-            return new ResultModel(-1,"用户名不能为空");
+            return new Result(-1,"用户名不能为空");
         }
         if(StringUtils.isEmpty(member.getPassword())){
-            return new ResultModel(-1,"密码不能为空");
+            return new Result(-1,"密码不能为空");
         }
         Member loginMember = memberService.manageLogin(member,request);
         if(loginMember != null){
@@ -116,9 +116,9 @@ public class IndexController extends BaseController {
             if (com.lxinet.jeesns.core.utils.StringUtils.isEmpty(redirectUrl)){
                 redirectUrl = request.getContextPath() + "/" + jeesnsConfig.getManagePath() + "/";
             }
-            return new ResultModel(2,"登录成功",redirectUrl);
+            return new Result(2,"登录成功",redirectUrl);
         }else {
-            return new ResultModel(-1,"用户名或密码错误");
+            return new Result(-1,"用户名或密码错误");
         }
     }
 

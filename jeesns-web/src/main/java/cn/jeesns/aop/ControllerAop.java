@@ -3,13 +3,24 @@ package cn.jeesns.aop;
 import cn.jeesns.core.dto.Result;
 import cn.jeesns.core.exception.JeeException;
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 
 
 /**
  * @author zchuanzhao
  */
+@Aspect
+@Configuration
 public class ControllerAop {
-
+    
+    @Pointcut("execution(public cn.jeesns.core.dto.Result *(..))")
+    public void excudeService(){}
+    
+    @Around("excudeService()")
     public Object handlerController(ProceedingJoinPoint pjp){
         Result<?> result;
         try {

@@ -27,7 +27,10 @@
                     <li class="dropdown">
                         <a href="${basePath}/member/" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="${basePath}${loginUser.avatar}" class="img-circle" width="25px" height="25px" style="margin-top: 1px;margin-right:5px;"/>
-                            ${loginUser.name}<span class="label label-danger">${loginUser.memberLevel.name}</span>
+                            ${loginUser.name}
+                            <#if loginUser.memberLevel??>
+                                <span class="label label-danger">${loginUser.memberLevel.name}</span>
+                            </#if>
                             <#if unReadMessageNum+systemUnReadMessageNum &gt; 0><i class="icon-comments"></i></#if>
                             <b class="caret"></b>
                         </a>

@@ -203,7 +203,13 @@
                         <div class="name">
                             <a href="${basePath}/u/${groupTopic.member.id}"
                                target="_blank">${groupTopic.member.name}</a>
-                            <p><span class="label label-danger">${groupTopic.member.memberLevel.name}</span></p>
+                            <#if groupTopic.member.memberLevel??>
+                                <p>
+                                <span class="label label-danger">
+                                    ${groupTopic.member.memberLevel.name}
+                                </span>
+                                </p>
+                            </#if>
                         </div>
                         <div class="info">
                             <p>

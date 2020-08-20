@@ -16,7 +16,7 @@ import java.io.IOException;
  * 插件
  * Created by zchuanzhao on 2018/11/26.
  */
-@Controller("pluginController")
+//@Controller("pluginController")
 public class PluginController extends BaseController {
 
     /**

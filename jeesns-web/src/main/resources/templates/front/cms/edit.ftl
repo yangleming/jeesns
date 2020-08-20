@@ -69,7 +69,7 @@
                                     <input type="hidden" id="thumbnail" name="thumbnail" value="${article.thumbnail?default('')}">
                                     <div id="preview" class="uploader-list">
                                     <#if article.thumbnail?? && article.thumbnail!=''>
-                                        <img src="${basePath}${article.thumbnail}" width="100px" height="100px"/>
+                                        <img src="${basePath}${article.thumbnail}" height="100px"/>
                                     </#if>
                                     </div>
                                     <div id="imagesList" class="uploader-list"></div>

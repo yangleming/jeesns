@@ -33,8 +33,12 @@ public class ControllerAop {
 
     private Result<?> handlerExceotion(ProceedingJoinPoint pjp, Throwable e){
         Result<?> result = new Result();
-        if (e instanceof JeeException && null != ((JeeException) e).getJeeMessage()){
-            result.setMessage(((JeeException)e).getJeeMessage());
+        if (e instanceof JeeException){
+            if ( null != ((JeeException) e).getJeeMessage()){
+                result.setMessage(((JeeException)e).getJeeMessage());
+            }else {
+                result.setMessage(e.getMessage());
+            }
         }else {
             result.setCode(-1);
             if (null == e.getMessage()){

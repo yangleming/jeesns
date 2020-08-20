@@ -60,7 +60,7 @@ jQuery(function() {
         if(json.code == 0){
             console.log(json.url);
             $('#thumbnail').val(json.url);
-            $("#preview").html("<img src='"+basePath+json.url+"'/ height='100px' width='100px'>");
+            $("#preview").html("<img src='"+basePath+json.url+"'/ height='100px'>");
         }
         $( '#'+file.id ).find('h4.info').text('');
         $( '#'+file.id ).find('p.state').text('');

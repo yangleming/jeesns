@@ -12,9 +12,11 @@ var group = {
                         "<a href=\""+base+"/u/"+data[i].member.id+"\" class=\"avatar\">" +
                         "<img src=\""+base+data[i].member.avatar+"\" class=\"icon-4x\"></a><div class=\"content\">" +
                         "<div class=\"pull-right text-muted\">"+data[i].createTime+"</div><div>" +
-                        "<a href=\""+base+"/u/"+data[i].member.id+"\"><strong>"+data[i].member.name+"</strong></a>" +
-                        "&nbsp;<span class=\"label label-danger\">" + data[i].member.memberLevel.name + "</span></div>" +
-                        "<div class=\"text\">";
+                        "<a href=\""+base+"/u/"+data[i].member.id+"\"><strong>"+data[i].member.name+"</strong></a>";
+                    if (data[i].member.memberLevel && data[i].member.memberLevel.name != null){
+                        html += "&nbsp;<span class=\"label label-danger\">" + data[i].member.memberLevel.name + "</span>"
+                    }
+                    html += "</div><div class=\"text\">";
                     var groupTopicComment = data[i].groupTopicComment;
                     if (groupTopicComment != null){
                         html += "<pre><code><p>引用“<a href='"+base+"/u/"+groupTopicComment.member.id+"'>"+groupTopicComment.member.name+"</a>”的评论</p>"+groupTopicComment.content+"</code></pre>";

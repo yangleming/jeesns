@@ -37,6 +37,7 @@ spring:
     useGlobalDataSourceStat: true
   freemarker:
     template-loader-path: classpath:/templates/
+    prefer-file-system-access: false
     cache: false
     order: 0
     suffix: .ftl
@@ -63,6 +64,12 @@ spring:
   messages:
     encoding: UTF-8
     basename: i18n/messages
+  servlet:
+    multipart:
+      enabled: true
+      # 上传文件大小限制30M，没有配置默认1M
+      max-file-size: 30MB
+      max-request-size: 30MB
 
 mybatis:
   typeAliasesPackage: cn.jeesns.model

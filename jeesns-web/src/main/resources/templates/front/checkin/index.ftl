@@ -54,7 +54,9 @@
                                             <a href="${basePath}/u/${checkin.member.id}" target="_blank">
                                                 <strong><a href="${basePath}/u/${checkin.member.id}">${checkin.member.name}</a> </strong>
                                             </a>
-                                            <p><span class="label label-danger">${checkin.member.memberLevel.name}</span></p>
+                                            <#if checkin.member.memberLevel??>
+                                                <p><span class="label label-danger">${checkin.member.memberLevel.name}</span></p>
+                                            </#if>
                                         </div>
                                     </div>
                                 </div>

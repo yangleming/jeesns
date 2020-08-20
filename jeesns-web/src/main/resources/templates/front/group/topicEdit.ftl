@@ -66,7 +66,7 @@
                                     <input type="hidden" id="thumbnail" name="thumbnail" value="${groupTopic.thumbnail?default('')}">
                                     <div id="preview" class="uploader-list">
                                     <#if groupTopic.thumbnail??>
-                                        <img src="${basePath}${groupTopic.thumbnail}" width="100px" height="100px"/>
+                                        <img src="${basePath}${groupTopic.thumbnail}" height="100px"/>
                                     </#if>
                                     </div>
                                     <div id="imagesList" class="uploader-list"></div>

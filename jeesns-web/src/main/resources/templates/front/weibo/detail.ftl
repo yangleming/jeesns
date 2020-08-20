@@ -46,8 +46,10 @@
                             <img alt="image" class="img-circle mg-l-30" src="${basePath}${weibo.member.avatar}"/>
                         </div>
                         <div class="name">
-                        ${weibo.member.name}
-                            <span class="label label-danger">${weibo.member.memberLevel.name}</span>
+                            ${weibo.member.name}
+                            <#if weibo.member.memberLevel??>
+                                <span class="label label-danger">${weibo.member.memberLevel.name}</span>
+                            </#if>
                         </div>
                         <div class="emoji-render-content">${weibo.content}</div>
                         <div class="lightBoxGallery">

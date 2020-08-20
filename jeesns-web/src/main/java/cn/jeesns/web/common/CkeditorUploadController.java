@@ -57,8 +57,8 @@ public class CkeditorUploadController extends BaseController {
         String fileName;//上传的图片文件名
         String suffix;//上传图片的文件扩展名
         for (MultipartFile file : upload) {
-            if (file.getSize() > 1 * 1024 * 1024) {
-                out.print("<script type='text/javascript'>window.parent.CKEDITOR.tools.callFunction(" + callback + ",''," + "'文件大小不得大于10M');</script>");
+            if (file.getSize() > 30 * 1024 * 1024) {
+                out.print("<script type='text/javascript'>window.parent.CKEDITOR.tools.callFunction(" + callback + ",''," + "'文件大小不得大于30M');</script>");
                 out.flush();
                 out.close();
             }

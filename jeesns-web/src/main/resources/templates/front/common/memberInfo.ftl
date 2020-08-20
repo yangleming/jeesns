@@ -20,7 +20,11 @@
                         <#else>
                             <span class="sex"><i class="icon icon-intersex"></i></span>
                         </#if>
-                        <span class="label label-danger" style="font-size: 12px;">${member.memberLevel.name}</span>
+                        <#if member.memberLevel??>
+                            <span class="label label-danger" style="font-size: 12px;">
+                                ${member.memberLevel.name}
+                            </span>
+                        </#if>
                         <a class="label label-primary edit member-follows" member-id="${member.id}">
                             <i class="icon icon-heart-o"></i> 关注
                         </a>&nbsp;

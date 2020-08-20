@@ -20,8 +20,9 @@
                             <#else>
                                 <span class="sex"><i class="icon icon-intersex"></i></span>
                         </#if>
-
-                        <span class="label label-danger" style="font-size: 12px;">${member.memberLevel.name}</span>
+                        <#if member.memberLevel??>
+                            <span class="label label-danger" style="font-size: 12px;">${member.memberLevel.name}</span>
+                        </#if>
                         <a class="label label-primary edit" href="${basePath}/member/editInfo">
                             <i class="icon icon-edit"></i> 编辑
                         </a>

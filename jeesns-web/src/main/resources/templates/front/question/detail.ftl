@@ -194,7 +194,9 @@
                         <div class="name">
                             <a href="${basePath}/u/${question.member.id}"
                                target="_blank">${question.member.name}</a>
-                            <p><span class="label label-danger">${question.member.memberLevel.name}</span></p>
+                            <#if question.member.memberLevel??>
+                                <p><span class="label label-danger">${question.member.memberLevel.name}</span></p>
+                            </#if>
                         </div>
                         <div class="info">
                             <p>

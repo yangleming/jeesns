@@ -72,14 +72,17 @@ public class ArticleController extends BaseController {
     public String detail(@PathVariable("id") Integer id, Model model){
         Member loginMember = MemberUtil.getLoginMember(request);
         Article article = articleService.findById(id,loginMember);
+    
         //文章不存在或者访问未审核的文章，跳到错误页面，提示文章不存在
         if(article == null || article.getStatus() == 0){
             throw new NotFountException(Messages.ARTICLE_NOT_EXISTS);
         }
         //更新文章访问次数
         articleService.updateViewCount(article.getId());
+    
         model.addAttribute("article",article);
         List<ArticleCate> articleCateList = articleCateService.list();
+    
         model.addAttribute("articleCateList",articleCateList);
         model.addAttribute("loginUser",loginMember);
         return jeesnsConfig.getFrontTemplate() + "/cms/detail";

@@ -12,7 +12,7 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface IConfigDao extends BaseMapper<Config> {
 
-    boolean update(@Param("key") String key,@Param("value") String value);
+    boolean saveOrUpdate(@Param("key") String key,@Param("value") String value);
 
     Config selectByKey(@Param("key") String key);
 }

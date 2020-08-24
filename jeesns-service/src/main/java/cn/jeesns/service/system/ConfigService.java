@@ -49,7 +49,7 @@ public class ConfigService extends BaseService<Config> {
             if(((String)entry.getValue()).length() > 2000){
                 throw new ParamException("只能输入2000个字符");
             }else {
-                configDao.update((String)entry.getKey(),(String)entry.getValue());
+                configDao.saveOrUpdate((String)entry.getKey(),(String)entry.getValue());
                 request.getServletContext().setAttribute(((String)entry.getKey()).toUpperCase(),entry.getValue());
             }
         }

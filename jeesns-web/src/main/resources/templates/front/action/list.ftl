@@ -31,10 +31,9 @@
 <#include "/${frontTemplate}/common/header.ftl"/>
 <div class="container">
     <div class="main-content">
-        <div class="row">
-            <div class="col-sm-12 col-xs-12 m-b-10">
-                <div class="white-bg p-20">
-                    <div class="items">
+        <div class="row m-l-r-0 m-b-20">
+            <div class="col-sm-12 col-xs-12 white-bg">
+                <div class="items">
                     <#list model.data as actionLog>
                     <div class="comment">
                         <a href="${basePath}/u/${actionLog.member.id}" class="avatar" target="_blank">
@@ -49,8 +48,7 @@
                             </div>
                             <div class="text emoji-render-content">
                                 <#if actionLog.type==1>
-                                    <a href="${basePath}/article/detail/${actionLog.foreignId}"
-                                       target="_blank">${actionLog.remark}</a>
+                                    <a href="${basePath}/article/detail/${actionLog.foreignId}" target="_blank">${actionLog.remark}</a>
                                 <#elseif actionLog.type==2>
                                     <p>${actionLog.remark}</p>
                                     <a href="${weiboPath}/detail/${actionLog.foreignId}"
@@ -63,7 +61,6 @@
                         </div>
                     </div>
                     </#list>
-                    </div>
                     <ul class="pager pagination pagination-sm no-margin pull-right"
                         url="${basePath}/action/list"
                         currentPage="${model.page.pageNo}"

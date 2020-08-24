@@ -1,30 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>编辑商品 - ${SITE_NAME} - JEESNS后台管理系统 - Powered By JEESNS</title>
-    <meta name="keywords" content="${SITE_KEYS}"/>
-    <meta name="description" content="${SITE_DESCRIPTION}"/>
-    <meta name="author" content="JEESNS"/>
-    <link href="${basePath}/res/common/css/bootstrap.min.css" rel="stylesheet">
-    <link href="${basePath}/res/common/css/font-awesome.min.css" rel="stylesheet">
-    <link href="${basePath}/res/manage/css/AdminLTE.css" rel="stylesheet">
-    <link href="${basePath}/res/plugins/webuploader/webuploader.css" rel="stylesheet">
-    <link href="${basePath}/res/manage/css/skins/_all-skins.css" rel="stylesheet">
-    <link href="${basePath}/res/plugins/layer/skin/layer.css" rel="stylesheet">
-    <!--[if lt IE 9]>
-    <script src="${basePath}/res/common/js/html5shiv.js"></script>
-    <script src="${basePath}/res/common/js/respond.min.js"></script>
-    <![endif]-->
-    <script src="${basePath}/res/common/js/jquery-2.1.1.min.js"></script>
-    <script src="${basePath}/res/common/js/jquery.form.js"></script>
-    <script src="${basePath}/res/common/js/bootstrap.min.js"></script>
-    <script src="${basePath}/res/manage/js/app.js"></script>
-    <script src="${basePath}/res/plugins/webuploader/webuploader.min.js"></script>
-    <script src="${basePath}/res/plugins/layer/layer.js"></script>
-    <script src="${basePath}/res/common/js/jeesns.js?v1.4"></script>
-    <script src="${basePath}/res/plugins/ckeditor/ckeditor.js"></script>
+    <#assign PAGE_TITLE = "编辑商品"/>
+    <#include "/manage/common/head-res.ftl"/>
     <script type="text/javascript">
         $(function () {
             CKEDITOR.replace('content');
@@ -92,7 +70,7 @@
                         <div class="col-sm-10">
                             <div id="uploader" class="wu-example">
                                 <!--用来存放文件信息-->
-                                <input type="hidden" id="thumbnail" name="thumbnail" value="${goods.thumbnail}">
+                                <input type="hidden" id="thumbnail" name="thumbnail" value="${goods.thumbnail?default('')}">
                                 <div id="preview" class="uploader-list">
                                     <#if goods.thumbnail?? && goods.thumbnail!=''>
                                         <img src="${basePath}${goods.thumbnail}" width="100px" height="100px"/>

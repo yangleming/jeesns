@@ -1,5 +1,7 @@
 package cn.jeesns.web.front;
 
+import cn.jeesns.core.utils.Assert;
+import cn.jeesns.core.utils.StringUtils;
 import cn.jeesns.interceptor.UserLoginInterceptor;
 import cn.jeesns.model.member.Member;
 import cn.jeesns.model.question.Answer;
@@ -87,6 +89,8 @@ public class QuestionController extends BaseController {
     public Result ask(Question question) {
         Member loginMember = MemberUtil.getLoginMember(request);
         question.setMemberId(loginMember.getId());
+        Assert.isTrue(StringUtils.isNotBlank(question.getTitle()), "标题不能为空");
+        Assert.isTrue(StringUtils.isNotBlank(question.getContent()), "内容不能为空");
         questionService.save(question);
         Result result = new Result(0);
         result.setData(question.getId());
@@ -106,6 +110,8 @@ public class QuestionController extends BaseController {
     @Before(UserLoginInterceptor.class)
     public Result update(Question question) {
         Member loginMember = MemberUtil.getLoginMember(request);
+        Assert.isTrue(StringUtils.isNotBlank(question.getTitle()), "标题不能为空");
+        Assert.isTrue(StringUtils.isNotBlank(question.getContent()), "内容不能为空");
         Result result = new Result(questionService.update(loginMember,question));
         result.setData(question.getId());
         return result;

@@ -1,29 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>系统设置 - ${SITE_NAME} - JEESNS后台管理系统 - Powered By JEESNS</title>
-    <meta name="keywords" content="${SITE_KEYS}"/>
-    <meta name="description" content="${SITE_DESCRIPTION}"/>
-    <meta name="author" content="JEESNS"/>
-    <link href="${basePath}/res/common/css/bootstrap.min.css" rel="stylesheet">
-    <link href="${basePath}/res/common/css/font-awesome.min.css" rel="stylesheet">
-    <link href="${basePath}/res/manage/css/AdminLTE.css" rel="stylesheet">
-    <link href="${basePath}/res/manage/css/skins/_all-skins.css" rel="stylesheet">
-    <link href="${basePath}/res/plugins/webuploader/webuploader.css" rel="stylesheet">
-    <link href="${basePath}/res/plugins/layer/skin/layer.css" rel="stylesheet">
-    <!--[if lt IE 9]>
-    <script src=${basePath}"/res/common/js/html5shiv.js"></script>
-    <script src=${basePath}"/res/common/js/respond.min.js"></script>
-    <![endif]-->
-    <script src="${basePath}/res/common/js/jquery-2.1.1.min.js"></script>
-    <script src="${basePath}/res/common/js/jquery.form.js"></script>
-    <script src="${basePath}/res/common/js/bootstrap.min.js"></script>
-    <script src="${basePath}/res/manage/js/app.js"></script>
-    <script src="${basePath}/res/plugins/webuploader/webuploader.min.js"></script>
-    <script src="${basePath}/res/plugins/layer/layer.js"></script>
-    <script src="${basePath}/res/common/js/jeesns.js?v1.4"></script>
+    <#assign PAGE_TITLE = "系统设置"/>
+    <#include "/manage/common/head-res.ftl"/>
     <script type="text/javascript">
         var basePath = "${basePath}";
         var uploadServer = "${managePath}/uploadImage";
@@ -303,7 +282,11 @@
                                 <div class="form-group">
                                     <label class="col-sm-1 control-label">付费群组手续费</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="group_follow_pay_fee" name="group_follow_pay_fee" placeholder="付费群组手续费" value="${group_follow_pay_fee}" data-type="require,double">
+                                        <#if group_follow_pay_fee??>
+                                            <input type="text" class="form-control" id="group_follow_pay_fee" name="group_follow_pay_fee" placeholder="付费群组手续费" value="${group_follow_pay_fee}" data-type="require,double">
+                                        <#else>
+                                            <input type="text" class="form-control" id="group_follow_pay_fee" name="group_follow_pay_fee" placeholder="付费群组手续费" value="0" data-type="require,double">
+                                        </#if>
                                         如0.1表示收取10%手续费
                                     </div>
                                 </div>
@@ -322,8 +305,8 @@
                                     <label class="col-sm-1 control-label">支付宝支付</label>
                                     <div class="col-sm-8">
                                         <select class="form-control" name="alipay_open">
-                                            <option value="0" <#if alipay_open=='0'>selected</#if>>关闭</option>
-                                            <option value="1" <#if alipay_open=='1'>selected</#if>>开启</option>
+                                            <option value="0" <#if !(alipay_open??) || alipay_open=='0'>selected</#if>>关闭</option>
+                                            <option value="1" <#if alipay_open?? && alipay_open=='1'>selected</#if>>开启</option>
                                         </select>
                                     </div>
                                 </div>

@@ -32,8 +32,9 @@ public class GoodsController extends BaseController {
 
     @GetMapping("list")
     @Before(AdminLoginInterceptor.class)
-    public String index(String key, @RequestParam(value = "cateid",defaultValue = "0",required = false) Integer cateid,
-    @RequestParam(value = "status",defaultValue = "-1",required = false) Integer status, Model model) {
+    public String index(@RequestParam(value = "key",defaultValue = "",required = false) String key,
+                        @RequestParam(value = "cateid",defaultValue = "0",required = false) Integer cateid,
+                        @RequestParam(value = "status",defaultValue = "-1",required = false) Integer status, Model model) {
         List<GoodsCate> topList = goodsCateService.topList();
         List<GoodsCate> sonList = goodsCateService.sonList();
         Page page = new Page(request);

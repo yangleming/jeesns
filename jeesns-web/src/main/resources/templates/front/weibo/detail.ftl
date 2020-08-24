@@ -51,7 +51,9 @@
                                 <span class="label label-danger">${weibo.member.memberLevel.name}</span>
                             </#if>
                         </div>
-                        <div class="emoji-render-content">${weibo.content}</div>
+                        <div class="emoji-render-content detail">
+                            ${weibo.content}
+                        </div>
                         <div class="lightBoxGallery">
                         <#list weibo.pictures as picture>
                             <a href="${basePath}${picture.path}" title="${weibo.member.name}" data-gallery=""><img

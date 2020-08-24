@@ -54,6 +54,7 @@ public class WeiboService extends BaseService<Weibo> {
 
     public Weibo findById(int id, int memberId) {
         Weibo weibo = weiboDao.findById(id,memberId);
+        formatWeibo(weibo);
         return weibo;
     }
 
@@ -195,6 +196,7 @@ public class WeiboService extends BaseService<Weibo> {
     public Weibo formatWeibo(Weibo weibo){
         if (weibo != null){
             weibo.setContent(memberService.atFormat(weibo.getContent()));
+            weibo.setContent(weibo.getContent().replace("\n", "<br/>"));
             weibo.setContent(TopicUtil.formatTopic(weibo.getContent()));
         }
         return weibo;

@@ -81,6 +81,17 @@ CREATE TABLE `tbl_delivery_address`  (
   `address` varchar(128) NOT NULL DEFAULT '',
   `zip` varchar(6) NOT NULL DEFAULT '',
   `phone` varchar(11) NOT NULL DEFAULT '',
-  `is_default` tinyint(1) NOT NULL DEFAULT '0'
+  `is_default` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8;
+
+CREATE TABLE `tbl_shop_cart`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `create_time` datetime(0) NOT NULL,
+  `member_id` int(11) NOT NULL DEFAULT '0',
+  `goods_id` int(11) NOT NULL DEFAULT '0',
+  `num` int(11) NOT NULL DEFAULT '1' COMMENT '数量',
+  `unit_price` double(11,4) DEFAULT '0' COMMENT '单价',
+  `total_price` double(11,4) DEFAULT '0' COMMENT '总价',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8;

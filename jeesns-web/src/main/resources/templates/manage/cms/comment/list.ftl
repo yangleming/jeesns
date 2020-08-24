@@ -1,29 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>文章评论管理 - ${SITE_NAME} - JEESNS后台管理系统 - Powered By JEESNS</title>
-    <meta name="keywords" content="${SITE_KEYS}"/>
-    <meta name="description" content="${SITE_DESCRIPTION}"/>
-    <meta name="author" content="JEESNS"/>
-    <link href="${basePath}/res/common/css/bootstrap.min.css" rel="stylesheet">
-    <link href="${basePath}/res/common/css/font-awesome.min.css" rel="stylesheet">
-    <link href="${basePath}/res/manage/css/AdminLTE.css" rel="stylesheet">
-    <link href="${basePath}/res/manage/css/skins/_all-skins.css" rel="stylesheet">
-    <link href="${basePath}/res/plugins/webuploader/webuploader.css" rel="stylesheet">
-    <link href="${basePath}/res/plugins/layer/skin/layer.css" rel="stylesheet">
-    <!--[if lt IE 9]>
-    <script src=${basePath}"/res/common/js/html5shiv.js"></script>
-    <script src=${basePath}"/res/common/js/respond.min.js"></script>
-    <![endif]-->
-    <script src="${basePath}/res/common/js/jquery-2.1.1.min.js"></script>
-    <script src="${basePath}/res/common/js/jquery.form.js"></script>
-    <script src="${basePath}/res/common/js/bootstrap.min.js"></script>
-    <script src="${basePath}/res/manage/js/app.js"></script>
-    <script src="${basePath}/res/plugins/layer/layer.js"></script>
-    <script src="${basePath}/res/common/js/jeesns.js?v1.4"></script>
-    <script src="${basePath}/res/common/js/extendPagination.js"></script>
+    <#assign PAGE_TITLE = "文章评论管理"/>
+    <#include "/manage/common/head-res.ftl"/>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -59,11 +38,11 @@
                             <table class="table table-hover">
                                 <thead>
                                 <tr>
-                                    <th style="width: 10px">#</th>
-                                    <th>会员</th>
-                                    <th width="50%">评论内容</th>
-                                    <th>文章</th>
-                                    <th>创建时间</th>
+                                    <th width="50px">#</th>
+                                    <th width="120px">会员</th>
+                                    <th>评论内容</th>
+                                    <th width="200px">文章</th>
+                                    <th width="120px">创建时间</th>
                                     <th width="50px">操作</th>
                                 </tr>
                                 </thead>
@@ -76,7 +55,7 @@
                                             ${articleComment.member.name}
                                         </a>
                                         </td>
-                                    <td>${articleComment.content}</td>
+                                    <td style="word-break: break-all">${articleComment.content}</td>
                                     <td>
                                         <a href="${basePath}/article/detail/${articleComment.article.id}" target="_blank">
                                         《${articleComment.article.title}》

@@ -1,25 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>JEESNS后台管理首页 - ${SITE_NAME} - JEESNS后台管理系统 - Powered By JEESNS</title>
-    <meta name="keywords" content="${SITE_KEYS}"/>
-    <meta name="description" content="${SITE_DESCRIPTION}"/>
-    <meta name="author" content="JEESNS"/>
-    <link href="${basePath}/res/common/css/bootstrap.min.css" rel="stylesheet">
-    <link href="${basePath}/res/common/css/font-awesome.min.css" rel="stylesheet">
-    <link href="${basePath}/res/manage/css/AdminLTE.css" rel="stylesheet">
-    <link href="${basePath}/res/manage/css/skins/_all-skins.css" rel="stylesheet">
-    <!--[if lt IE 9]>
-    <script src="${basePath}/res/common/js/html5shiv.min.js"></script>
-    <script src=${basePath}"/res/common/js/respond.min.js"></script>
-    <![endif]-->
-    <script src="${basePath}/res/common/js/jquery-2.1.1.min.js"></script>
-    <script src="${basePath}/res/common/js/bootstrap.min.js"></script>
-    <script src="${basePath}/res/plugins/layer/layer.js"></script>
-    <script src="${basePath}/res/manage/js/app.js"></script>
-    <script src="${basePath}/res/common/js/jeesns.js?v1.4"></script>
+    <#assign PAGE_TITLE = "JEESNS后台管理首页"/>
+    <#include "/manage/common/head-res.ftl"/>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -59,7 +42,7 @@
                     <div class="box box-primary">
                         <div class="box-body">
                             <p>
-                                技术支持：<a href="http://www.lxinet.com">凌夕网络（www.lxinet.com）</a><br/>
+                                技术支持：<a href="http://www.lxinet.cn">凌夕网络（www.lxinet.cn）</a><br/>
                                 产品交流：<a href="http://www.jeesns.cn">JEESNS社区（www.jeesns.cn）</a><br/>
                                 服务器赞助：<a href="http://www.919dns.com">919数据中心（www.919dns.com）</a><br/>
                                 QQ交流群：280062708<br/>

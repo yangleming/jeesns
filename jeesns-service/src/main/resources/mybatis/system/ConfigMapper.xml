@@ -7,8 +7,9 @@
     <result column="description" jdbcType="VARCHAR" property="description" />
   </resultMap>
 
-  <update id="update" parameterType="String">
-    update tbl_config set jvalue=#{value} where jkey = #{key}
+  <update id="saveOrUpdate" parameterType="String">
+    insert into tbl_config(jkey, jvalue) values (#{key}, #{value})
+    on duplicate key update jvalue = values(jvalue)
   </update>
 
   <select id="selectByKey" parameterType="String" resultMap="ConfigResult">

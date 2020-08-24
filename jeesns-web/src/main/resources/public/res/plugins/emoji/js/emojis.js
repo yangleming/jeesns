@@ -83,7 +83,7 @@
                 dataType: 'json',
                 cache:true,
                 success: function(data) {
-                    var dataJson = eval('(' + data + ')');
+                    var dataJson = data;
                     jsonData = dataJson.data;
                     emojiPath = dataJson.path;
                     var options = $.extend({}, defaults, opt || {});

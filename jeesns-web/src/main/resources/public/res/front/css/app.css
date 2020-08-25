@@ -34,15 +34,19 @@ a {
 .p-t-5 {
     padding-top: 5px;
 }
+
 .p-t-10 {
     padding-top: 10px;
 }
+
 .p-r-10 {
     padding-right: 10px;
 }
+
 .p-20 {
     padding: 20px;
 }
+
 .p-b-100 {
     padding-bottom: 100px;
 }
@@ -50,6 +54,7 @@ a {
 .m-l-20 {
     margin-left: 20px;
 }
+
 .m-t-n4 {
     margin-top: -4px;
 }
@@ -67,7 +72,7 @@ a {
 }
 
 .m-b-20 {
-    margin-bottom:20px;
+    margin-bottom: 20px;
 }
 
 .m-b-30 {
@@ -77,10 +82,12 @@ a {
 .m-b-50 {
     margin-bottom: 50px;
 }
+
 .m-b-90 {
     margin-bottom: 90px;
 }
-.m-l-r-0{
+
+.m-l-r-0 {
     margin-left: 0;
     margin-right: 0;
 }
@@ -89,10 +96,12 @@ a {
     text-align: center;
 }
 
-.word-break{
-    word-break:break-all;
+.word-break {
+    word-break: break-all;
 }
-
+.hidden{
+    display: none;
+}
 
 .navbar {
     border-radius: 0px;
@@ -130,20 +139,23 @@ a {
     color: #008cff;
     background-color: #ffffff;
 }
+
 .navbar-inverse .navbar-nav-right {
     background-color: #FFFFFF;
 }
+
 .navbar-inverse .navbar-nav-right:hover {
     background-color: #FFFFFF;
 }
-.navbar-inverse .navbar-nav>.open>a,
-.navbar-inverse .navbar-nav>.open>a:focus,
-.navbar-inverse .navbar-nav>.open>a:hover {
+
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:focus,
+.navbar-inverse .navbar-nav > .open > a:hover {
     color: #008cff;
     background-color: #FFFFFF;
 }
 
-.navbar-inverse .navbar-nav-right dropdown > open{
+.navbar-inverse .navbar-nav-right dropdown > open {
     margin-top: -5px;
 }
 
@@ -210,9 +222,11 @@ a {
 
 .main-content {
 }
-.wrapper-content{
+
+.wrapper-content {
     margin-bottom: 20px;
 }
+
 .panel-heading {
     border-bottom: 1px solid #008cff;
     font-size: 15px;
@@ -222,10 +236,12 @@ a {
     background-color: #ffffff !important;
     border-color: #008cff !important;
 }
+
 .panel-heading .right-btn {
     margin-right: -5px;
 }
-.article-content, .article>.content {
+
+.article-content, .article > .content {
     word-break: break-all;
 }
 
@@ -296,7 +312,7 @@ a {
     padding: 100px 0;
 }
 
-.weibo-detail .content .detail{
+.weibo-detail .content .detail {
     margin-top: 30px;
     text-align: left;
     word-break: break-all;
@@ -630,13 +646,13 @@ a {
     overflow: hidden;
     width: 110px;
     height: 110px;
-
+    
     -webkit-transform-origin: 50% 50%;
     -moz-transform-origin: 50% 50%;
     -o-transform-origin: 50% 50%;
     -ms-transform-origin: 50% 50%;
     transform-origin: 50% 50%;
-
+    
     -webit-transition: 200ms ease-out;
     -moz-transition: 200ms ease-out;
     -o-transition: 200ms ease-out;
@@ -895,6 +911,7 @@ a {
     font-size: 25px;
     font-weight: bold;
 }
+
 .member-banner .info .name .edit {
     font-size: 13px;
     font-weight: normal;
@@ -961,25 +978,26 @@ a {
     .member-banner .left {
         padding-top: 5px;
     }
-
+    
     .member-banner .avatar {
         margin-top: 10px;
         float: left;
         width: 40px;
         height: 40px;
     }
-
+    
     .member-banner .info {
         float: left;
         width: calc(100% - 50px);
         margin-left: 10px;
     }
-
+    
     .member-banner .right {
         padding-top: 5px;
         float: left;
         text-align: left;
     }
+    
     .member-banner .follows a,
     .member-banner .fans a,
     .member-banner .score a {
@@ -988,6 +1006,7 @@ a {
         margin-top: 5px;
         color: #0099cc;
     }
+    
     .member-banner .login-info {
         margin-top: 10px;
         display: block;
@@ -1142,13 +1161,13 @@ a {
 .picture-detail .row {
     margin-left: 0px !important;
     margin-right: 0px !important;
-    height:100% !important;
+    height: 100% !important;
 }
 
 .picture-detail .row .col {
     padding-left: 0px !important;
     padding-right: 0px !important;
-    height:100% !important;
+    height: 100% !important;
 }
 
 .picture-detail .show-picture {
@@ -1178,7 +1197,7 @@ a {
     float: left;
     padding: 15px;
     overflow-y: scroll;
-    overflow-x:hidden;
+    overflow-x: hidden;
 }
 
 .picture-detail .show-info .member-info {
@@ -1201,6 +1220,7 @@ a {
     margin-left: 20px;
     padding-top: 5px;
 }
+
 .picture-detail .show-info .more-comment {
     padding-top: 10px;
     text-align: center
@@ -1209,42 +1229,52 @@ a {
 .message-input {
     height: 90px !important;
 }
+
 .chat-avatar {
     white: 36px;
     height: 36px;
     float: left;
     margin-right: 10px;
 }
+
 .chat-user-name {
     padding: 10px;
 }
+
 .chat-user {
     padding: 8px 10px;
     border-bottom: 1px solid #e7eaec;
 }
+
 .chat-user a {
     color: inherit;
 }
+
 .chat-view {
     z-index: 20012;
 }
+
 .chat-users,
 .chat-statistic {
     margin-left: 10px;
     margin-right: -10px;
 }
+
 @media (max-width: 992px) {
     .chat-users,
     .chat-statistic {
         margin-left: 0;
     }
 }
+
 .chat-view .ibox-content {
     padding: 0;
 }
+
 .chat-message {
     padding: 10px 20px;
 }
+
 .message-avatar {
     height: 48px;
     width: 48px;
@@ -1252,14 +1282,17 @@ a {
     border-radius: 4px;
     margin-top: 1px;
 }
+
 .chat-discussion .chat-message.left .message-avatar {
     float: left;
     margin-right: 10px;
 }
+
 .chat-discussion .chat-message.right .message-avatar {
     float: right;
     margin-left: 10px;
 }
+
 .message {
     background-color: #fff;
     border: 1px solid #e7eaec;
@@ -1269,27 +1302,34 @@ a {
     position: relative;
     border-radius: 4px;
 }
+
 .chat-discussion .chat-message.left .message-date {
     float: right;
 }
+
 .chat-discussion .chat-message.right .message-date {
     float: left;
 }
+
 .chat-discussion .chat-message.left .message {
     text-align: left;
     margin-left: 55px;
 }
+
 .chat-discussion .chat-message.right .message {
     text-align: right;
     margin-right: 55px;
 }
+
 .message-date {
     font-size: 10px;
     color: #888888;
 }
+
 .message-content {
     display: block;
 }
+
 .chat-discussion {
     background: #e9eeee;
     padding: 15px;
@@ -1297,47 +1337,55 @@ a {
     overflow-y: auto;
     margin-right: 10px;
 }
+
 .send-message-area {
     margin-right: 10px;
 }
-.chat-discussion .no-message{
-    width:100%;
-    margin-top:100px;
-    text-align:center;
-    font-size:30px;
+
+.chat-discussion .no-message {
+    width: 100%;
+    margin-top: 100px;
+    text-align: center;
+    font-size: 30px;
 }
+
 .chat-users {
     overflow-y: auto;
     height: 530px;
 }
-.chat-users .load-more,.chat-discussion .chat-load-more{
+
+.chat-users .load-more, .chat-discussion .chat-load-more {
     width: 100%;
     text-align: center;
     margin-top: 10px;
 }
+
 .chat-message-form .form-group {
     margin-bottom: 0;
 }
 
-.albumPic{
+.albumPic {
     height: 160px;
 }
 
-.albumPic .picLink{
+.albumPic .picLink {
     width: 100%;
     height: 100%;
     justify-content: center;
     align-items: center;
     display: -webkit-flex;
 }
-.albumPic .pic{
+
+.albumPic .pic {
     max-height: 100%;
     max-width: 100%
 }
-.items .item-content>.media.pull-left{
+
+.items .item-content > .media.pull-left {
     max-width: 240px;
 }
-.article .title{
+
+.article .title {
     font-size: 18px;
     max-height: 22px;
     font-weight: 600;
@@ -1352,14 +1400,15 @@ a {
     -webkit-line-clamp: 2;
 }
 
-.article .title:hover{
+.article .title:hover {
     color: #008cff;
 }
 
-.shop .cate{
+.shop .cate {
     width: 200px;
 }
-.shop .cart{
+
+.shop .cart {
     width: 100px;
     float: right;
     text-align: right;
@@ -1367,17 +1416,20 @@ a {
     margin-top: -35px;
 }
 
-.shop .dropdown,.shop dropdown-hover{
+.shop .dropdown, .shop dropdown-hover {
     width: 200px;
 }
+
 .shop .goods {
     background: #FFFFFF;
     height: 390px;
 }
+
 .shop .goods .content {
     padding: 10px;
 }
-.shop .goods .title{
+
+.shop .goods .title {
     font-size: 18px;
     max-height: 22px;
     font-weight: 600;
@@ -1391,41 +1443,43 @@ a {
     display: -webkit-box;
     -webkit-line-clamp: 2;
 }
-.shop .goods .thumbnail{
+
+.shop .goods .thumbnail {
     max-width: 100% !important;
     width: 100% !important;
     height: auto;
     margin-top: -10px !important;
 }
-.shop .goods .thumbnail img{
+
+.shop .goods .thumbnail img {
     width: 100% !important;
     height: 100% !important;
 }
 
-.shop .goods .title:hover{
+.shop .goods .title:hover {
     color: #008cff;
 }
 
-.shop .goods .content{
+.shop .goods .content {
     width: 100%;
     float: left;
 }
 
-.shop .goods .content .price{
+.shop .goods .content .price {
     width: 50%;
     float: left;
     font-size: 20px;
     color: red;
 }
 
-.shop .goods .content .buy{
+.shop .goods .content .buy {
     width: 50%;
     text-align: right;
     float: left;
 }
 
 
-.shop .goods-detail .head{
+.shop .goods-detail .head {
     background-color: #FFFFFF;
     float: left;
     margin-bottom: 10px;
@@ -1433,29 +1487,153 @@ a {
     padding-bottom: 20px;
 }
 
-.shop .goods-detail .info{
+.shop .goods-detail .info {
     margin-top: -15px;
     padding-left: 30px;
 }
 
 
-.shop .goods-detail .detail-info div{
+.shop .goods-detail .detail-info div {
     margin-top: 20px;
 }
 
-.shop .goods-detail .detail-info .price span{
+.shop .goods-detail .detail-info .price span {
     font-size: 20px;
     color: red;
 }
+
 .items .item-content .text {
     word-break: break-all;
 }
+
+.upload-avatar{
+    min-height: 600px;
+}
+.upload-avatar .show-avatar{
+    margin: 100px auto;
+    width: 180px;
+    position: relative;
+}
+.upload-avatar .show-avatar .tip{
+    position: absolute;
+    bottom: 0;
+    width: 180px;
+    background: #f2f2f2;
+    padding: 5px 0;
+    text-align: center;
+    display: none;
+}
+.upload-avatar .avatar-view {
+    display: block;
+    width: 220px;
+    height: 220px;
+    border: 3px solid #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .15);
+    cursor: pointer;
+    overflow: hidden
+}
+
+.upload-avatar .avatar-view img {
+    width: 100%
+}
+
+.upload-avatar .avatar-body {
+    padding-right: 15px;
+    padding-left: 15px
+}
+
+.upload-avatar .avatar-upload {
+    overflow: hidden
+}
+
+.upload-avatar .avatar-upload label {
+    display: block;
+    float: left;
+    clear: left;
+    width: 100px
+}
+
+.upload-avatar .avatar-upload input {
+    display: block;
+    margin-left: 110px
+}
+
+.upload-avatar .avater-alert {
+    margin-top: 10px;
+    margin-bottom: 10px
+}
+
+.upload-avatar .avatar-wrapper {
+    height: 364px;
+    width: 100%;
+    margin-top: 15px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, .25);
+    background-color: #fcfcfc;
+    overflow: hidden
+}
+
+.upload-avatar .avatar-wrapper img {
+    display: block;
+    height: auto;
+    max-width: 100%
+}
+
+.upload-avatar .avatar-preview {
+    float: left;
+    margin-top: 15px;
+    margin-right: 15px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    background-color: #fff;
+    overflow: hidden
+}
+
+.upload-avatar .avatar-preview:hover {
+    border-color: #ccf;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .15)
+}
+
+.upload-avatar .avatar-preview img {
+    width: 100%
+}
+
+.upload-avatar .preview-lg {
+    height: 184px;
+    width: 184px;
+    margin-top: 15px
+}
+
+.upload-avatar .preview-md {
+    height: 100px;
+    width: 100px
+}
+
+.upload-avatar .preview-sm {
+    height: 50px;
+    width: 50px
+}
+
+@media (min-width: 992px) {
+    .upload-avatar .avatar-preview {
+        float: none
+    }
+}
+
+.upload-avatar .avatar-btns {
+    margin-top: 30px;
+    margin-bottom: 15px
+}
+
+.upload-avatar .avatar-btns .btn-group {
+    margin-right: 5px
+}
+
 @media (max-width: 2800px) {
     .shop .goods {
         height: 420px !important;
     }
 }
-
 
 
 @media (max-width: 1920px) {
@@ -1469,6 +1647,7 @@ a {
         height: 390px !important;
     }
 }
+
 @media (max-width: 992px) {
     .shop .goods {
         height: 290px !important;
@@ -1479,35 +1658,40 @@ a {
     .shop .goods {
         height: 300px !important;
     }
-
+    
 }
-@media (min-width: 768px){
+
+@media (min-width: 768px) {
     .container {
         max-width: 1000px;
     }
 }
 
-@media (min-width: 992px){
+@media (min-width: 992px) {
     .container {
         max-width: 1200px;
     }
 }
+
 /*webkit内核浏览器*/
 /* 设置滚动条的样式 */
 ::-webkit-scrollbar {
     width: 6px;
 }
+
 /* 滚动槽 */
 ::-webkit-scrollbar-track {
-    webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0);
+    webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
     border-radius: 6px;
 }
+
 /* 滚动条滑块 */
 ::-webkit-scrollbar-thumb {
     border-radius: 6px;
-    background: rgba(0,0,0,0.1);
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
 }
+
 ::-webkit-scrollbar-thumb:window-inactive {
     background: rgba(11, 41, 147, 0.8);
 }

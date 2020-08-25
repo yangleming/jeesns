@@ -11,6 +11,7 @@
     <link rel="shortcut icon" href="${basePath}/favicon.ico">
     <link href="${basePath}/res/common/css/zui.min.css" rel="stylesheet">
     <link href="${basePath}/res/front/css/app.css" rel="stylesheet">
+    <link href="${basePath}/res/plugins/cropper/cropper.min.css" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="${basePath}/res/common/js/html5shiv.min.js"></script>
     <script src=${basePath}"/res/common/js/respond.min.js"></script>
@@ -19,9 +20,14 @@
     <script src="${basePath}/res/common/js/zui.min.js"></script>
     <script src="${basePath}/res/plugins/layer/layer.js"></script>
     <script src="${basePath}/res/common/js/jquery.form.js"></script>
+    <script src="${basePath}/res/plugins/cropper/cropper.js"></script>
+    <script src="${basePath}/res/plugins/html2canvas/html2canvas.min.js"></script>
     <script src="${basePath}/res/common/js/jeesns.js?v1.4"></script>
-    <script src="${basePath}/res/plugins/fullAvatarEditor/scripts/fullswfobject.js"></script>
-    <script src="${basePath}/res/plugins/fullAvatarEditor/scripts/fullAvatar.js"></script>
+    <script>
+        var basePath = "${basePath}";
+    </script>
+    <script src="${basePath}/res/modules/avatar.js"></script>
+
 </head>
 
 <body class="gray-bg">
@@ -31,63 +37,61 @@
         <div class="row m-t-10">
             <#include "/member/common/settingMenu.ftl"/>
             <div class="col-sm-10 col-xs-12">
-                <div class="col-xs-12 white-bg">
+                <div class="col-xs-12 white-bg upload-avatar">
                     <div class="list list-condensed">
                         <header>
                             <h3><i class="icon-list-ul"></i> 修改头像</h3>
                         </header>
-                        <div style="width:632px;height:400px;text-align:center">
-                            <div>
-                                <p id="swfContainer">
-                                    本组件需要安装Flash Player后才可使用，请从<a href="http://www.adobe.com/go/getflashplayer">这里</a>下载安装。
-                                </p>
+                        <div class="show-avatar">
+                            <img src="${basePath}${loginUser.avatar}" width="180px" height="180px" data-toggle="modal" data-target="#avatar-modal"/>
+                            <div class="tip">
+                                点击图片修改头像
                             </div>
-                            <button type="button" id="upload" style="display:none;margin-top:8px;">
-                                swf外定义的上传按钮，点击可执行上传保存操作
-                            </button>
                         </div>
-                        <script type="text/javascript">
-                            swfobject.addDomLoadEvent(function () {
-                                var swf = new fullAvatarEditor("${basePath}/res/plugins/fullAvatarEditor/fullAvatarEditor.swf", "${basePath}/res/plugins/fullAvatarEditor/expressInstall.swf", "swfContainer", {
-                                            id: 'swf',
-                                            upload_url: '${basePath}/member/uploadAvatar',	//上传接口
-                                            method: 'post',	//传递到上传接口中的查询参数的提交方式。更改该值时，请注意更改上传接口中的查询参数的接收方式
-                                            src_upload: 0,		//是否上传原图片的选项，有以下值：0-不上传；1-上传；2-显示复选框由用户选择
-                                            avatar_box_border_width: 0,
-                                            avatar_sizes: '150*150',
-                                            avatar_sizes_desc: '150*150像素'
-                                        }, function (msg) {
-                                            console.log(msg);
-                                            switch (msg.code) {
-                                                case 1 :
-                                                    break;
-                                                case 2 :
-                                                    document.getElementById("upload").style.display = "inline";
-                                                    break;
-                                                case 3 :
-                                                    if (msg.type == 0) {
+                        <div class="modal fade" id="avatar-modal" aria-hidden="true" aria-labelledby="avatar-modal-label" role="dialog" tabindex="-1">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <form class="avatar-form">
+                                        <div class="modal-header">
+                                            <button class="close" data-dismiss="modal" type="button">&times;</button>
+                                            <h4 class="modal-title" id="avatar-modal-label">上传头像</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="avatar-body">
+                                                <div class="avatar-upload">
+                                                    <input class="avatar-src" name="avatar_src" type="hidden">
+                                                    <input class="avatar-data" name="avatar_data" type="hidden">
+                                                    <button class="btn btn-danger" type="button" style="height: 35px;" onclick="$('input[id=avatarInput]').click();">请选择头像</button>
+                                                    <span id="avatar-name"></span>
+                                                    <input class="avatar-input hidden" id="avatarInput" name="avatar_file" type="file"></div>
+                                                <div class="row">
+                                                    <div class="col-md-9">
+                                                        <div class="avatar-wrapper"></div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="avatar-preview preview-lg" id="imageHead"></div>
 
-                                                    }
-                                                    else if (msg.type == 1) {
-                                                        alert("摄像头已准备就绪但用户未允许使用！");
-                                                    }
-                                                    else {
-                                                        alert("摄像头被占用！");
-                                                    }
-                                                    break;
-                                                case 5 :
-                                                    setTimeout(function () {
-                                                        window.location.href = window.location.href;
-                                                    }, 2000);
-                                                    break;
-                                            }
-                                        }
-                                );
-                                document.getElementById("upload").onclick = function () {
-                                    swf.call("upload");
-                                };
-                            });
-                        </script>
+                                                    </div>
+                                                </div>
+                                                <div class="row avatar-btns">
+                                                    <div class="col-md-4">
+                                                        <div class="btn-group">
+                                                            <button class="btn btn-danger fa fa-undo" data-method="rotate" data-option="-90" type="button" title="Rotate -90 degrees"> 向左旋转</button>
+                                                        </div>
+                                                        <div class="btn-group">
+                                                            <button class="btn  btn-danger fa fa-repeat" data-method="rotate" data-option="90" type="button" title="Rotate 90 degrees"> 向右旋转</button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <button class="btn btn-danger btn-block avatar-save fa fa-save" type="button" data-dismiss="modal"> 保存修改</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -15,15 +15,20 @@ import cn.jeesns.core.utils.ImageUtil;
 import cn.jeesns.core.utils.StringUtils;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import sun.misc.BASE64Decoder;
+
 import javax.annotation.Resource;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.FileInputStream;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -202,6 +207,81 @@ public class UploadController extends BaseController {
 		}else {
 			result.put("success",true);
 			result.put("msg","会员不存在!");
+		}
+		return result;
+	}
+	/**
+	 * 上传头像
+	 * @param avatarBase64
+	 * @return
+	 */
+	@PostMapping("member/avatar")
+	@ResponseBody
+	public Result avatar(String avatarBase64){
+		Result result = new Result();
+		if (StringUtils.isBlank(avatarBase64) || !avatarBase64.startsWith("data:image/jpeg;base64,")){
+			result.setCode(-1);
+			result.setMessage("图片错误");
+			return result;
+		}
+		avatarBase64 = avatarBase64.replace("data:image/jpeg;base64,", "");
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMM");
+		String fileName = UUID.randomUUID()+".jpg";
+		String ymd = simpleDateFormat.format(new Date());
+		String filePath = Const.UPLOAD_PATH + "/avatar/" + ymd + "/";
+		String savePath = request.getServletContext().getRealPath(filePath);
+		File baseFile = new File(savePath);
+		File targetFile = new File(savePath, fileName);
+
+		if (!baseFile.exists()) {
+			baseFile.mkdirs();
+		}
+		//保存
+	 	BufferedOutputStream bos = null;
+        FileOutputStream fos = null;
+        try {
+            BASE64Decoder decoder = new BASE64Decoder();
+            byte[] bfile = decoder.decodeBuffer(avatarBase64);
+
+            fos = new FileOutputStream(targetFile);
+            bos = new BufferedOutputStream(fos);
+            bos.write(bfile);
+        } catch (Exception e) {
+            e.printStackTrace();
+			result.setCode(-1);
+			result.setMessage("图片上传失败");
+			return result;
+        } finally {
+            if (bos != null) {
+                try {
+                    bos.close();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+            }
+            if (fos != null) {
+                try {
+                    fos.close();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+            }
+        }
+		Member loginMember = MemberUtil.getLoginMember(request);
+		Member findMember = memberService.findById(loginMember.getId());
+		
+		if(findMember != null){
+			String oldAvatar = findMember.getAvatar();
+			findMember.setAvatar(filePath + fileName);
+			Result avaResult = memberService.updateAvatar(findMember,oldAvatar,request);
+			if (avaResult.getCode() == 0){
+				MemberUtil.setLoginMember(request, findMember);
+			}
+			result.setCode(0);
+			result.setMessage(avaResult.getMessage());
+		}else {
+			result.setCode(-1);
+			result.setMessage("会员不存在");
 		}
 		return result;
 	}
